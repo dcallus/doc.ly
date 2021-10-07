@@ -9,7 +9,7 @@ const Footer = ({onCountryClick, onFarmClick}) => {
             </div>
             
             <div id = "copyright">
-                    <p>©doc.ly</p>
+                    <p>©Doc.ly</p>
             </div>
     
             <div id = "footer-names">
