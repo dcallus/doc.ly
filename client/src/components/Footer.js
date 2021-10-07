@@ -1,18 +1,20 @@
 import React from 'react'
 
-const Footer = ({onCountryClick, onFarmClick}) => {
+const Footer = ({}) => {
 
     return (
         <div id="footer">
 
-            <div id = "prep-link">
+            <div>
+                Contact Us
             </div>
             
             <div id = "copyright">
                     <p>©Doc.ly</p>
             </div>
     
-            <div id = "footer-names">
+            <div>
+                A Phlo company
             </div>
         </div>
          

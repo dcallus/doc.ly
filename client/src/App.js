@@ -11,9 +11,7 @@ const App = () => {
       <Router>
         <div className="App">
           <Header/>
-            <Switch>
-              <Route path = '/' component = {UiContainer}></Route>
-            </Switch>
+            <UiContainer />
         </div>
       </Router>
     );

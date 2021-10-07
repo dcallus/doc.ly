@@ -1,4 +1,3 @@
-
 .App {
   text-align: center;
   display:flex;
@@ -113,29 +112,6 @@ margin-bottom: 40px;
    font-size: 15pt;
    padding: 0;
    margin: 0;
- }
- 
- #copyright:hover {
-   color: white;
-   text-decoration: underline;
-   cursor:pointer;
- }
- 
- #footer-names {
-   padding-top: 15px;
-   padding-bottom: 15px;
-   padding-right: 30px
- }
- 
- #footer-names > p {
-   margin: 0;
-   text-align: right;
-   font-weight: bold;
- }
- #footer-names > p:hover {
-   color: white;
-   text-decoration: underline;
-   cursor:pointer;
  }
 
 .button { 
