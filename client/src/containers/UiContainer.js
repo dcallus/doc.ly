@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 // import Map from '../components/Map'
 import Map from "./Map";
 import Footer from "../components/Footer";
-import Choro from "../components/Choro";
 import { getCoffees } from "../Services";
 import NavBarBottom from "../components/NavBarBottom";
 import { features } from "../data/countries.json";
@@ -90,7 +89,6 @@ const UiContainer = () => {
   ) : (
     <div>
       <div id="Ui-Container">
-        <Choro countries={countries} legend={legend} coffees={coffees} onChangeLegend={onChangeLegend}/>
       
       <div>
             <NavBarBottom
