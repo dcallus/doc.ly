@@ -64,7 +64,6 @@ body::before {
   padding: 100px;  
 }
 
-/* DO NOT adjust as it messes up zoom/fly settings */
 .map {
   height: 60vh;
 }
@@ -79,7 +78,6 @@ body::before {
   justify-content: center;
   text-shadow: snow;
   font-weight: bold;
-  /* background:antiquewhite; */
   background-size: unset;
   color: lightslategray;
   border-radius: 0%;
