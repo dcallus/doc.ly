@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <div id = "header">
-            <h1>PHLO</h1>
+            <h1>DOC.LY</h1>
         </div>
     )
 }
