@@ -9,7 +9,6 @@ import { getDoctors } from '../Services';
 // import { getCoffees } from "../Services"
 import MarkerList from "../components/map_components/MarkerList"
 
-
 const Map = ({coffees}) => {
 
   // const [coffees, setCoffees] = useState([]);
@@ -19,11 +18,23 @@ const Map = ({coffees}) => {
   const [filteredCoffees, setFilteredCoffees] = useState([coffees]);
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
-  const [distance, setDistance] = useState(10);
+  const [doctors, setDoctors] = useState({})
 
-  const changeDistance = (distance) => {
-    setDistance(distance);
-  }
+  async function getDoctors (lat, long) {
+    return fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=doctor&location=${lat}%2C${long}&radius=2000&type=health&key=AIzaSyCo5P0oK1yXi9wZs7zyQTV6puo5dswHmUY`).then((response) => {
+    if (response.ok) {
+        return response.json();
+    } else {
+      throw new Error('Something went wrong');
+    }
+  })
+  .then((responseJson) => {
+    if (responseJson.results.length > 0){
+      setDoctors(responseJson.results)};
+  })
+  .catch((error) => {
+    console.log(error)
+  })}
 
   function getLocation() {
     if (navigator.geolocation) {
@@ -33,8 +44,6 @@ const Map = ({coffees}) => {
   function saveLocation(position) {
     setLat(position.coords.latitude);
     setLong(position.coords.longitude);
-    // console.log("Latitude: " + state.lat + 
-    // "Longitude: " + state.long);
   }
 
   getLocation();
@@ -43,8 +52,8 @@ const Map = ({coffees}) => {
   }, [selectedRegion, selectedTaste, selectedBean, coffees])
 
   useEffect(() => {
-  getDoctors(distance, lat, long).then((value) => console.log(value));
-  }, [long, distance]);
+  getDoctors(lat, long);
+  }, [long]);
 
   const onSelectRegion = function (region) {
     setSelectedRegion(region)
@@ -117,9 +126,7 @@ const Map = ({coffees}) => {
     <>
       {  lat !== 0 && long !== 0 ?
         <div>
-          <NavBar changeDistance={changeDistance}
-          />
-
+          <NavBar />
 
           <MapContainer className="map" attributionControl={false} center={[lat, long]} zoom={15}
           scrollWheelZoom={false}
@@ -130,7 +137,7 @@ const Map = ({coffees}) => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            <MarkerList coffees={filteredCoffees} icon={coffeeIcon} />
+            <MarkerList coffees={filteredCoffees} icon={coffeeIcon} doctors={doctors}/>
           </MapContainer>
           
         </div> : 
