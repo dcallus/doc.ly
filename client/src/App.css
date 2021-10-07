@@ -119,13 +119,14 @@ margin-bottom: 40px;
   border-style: none;
 }
 .button:hover {
-  color: white;
+  background-color: hsl(204, 90%, 35%);
   text-decoration: underline;
   cursor:pointer;
 }
 
-.button-highlighted {
-  border-style: solid;
-  border-color: antiquewhite;
-  border-width: 2px;
+.button:active {
+  background-color: hsl(204, 90%, 60%);
+  outline-style: solid;
+  outline-color: antiquewhite;
+  outline-width: 2px;
 }

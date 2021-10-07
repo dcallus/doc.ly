@@ -17,6 +17,11 @@ const Map = ({coffees}) => {
   const [filteredCoffees, setFilteredCoffees] = useState([coffees]);
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
+  const [distance, setDistance] = useState(10);
+
+  const changeDistance = (distance) => {
+    setDistance(distance);
+  }
 
   function getLocation() {
     if (navigator.geolocation) {
@@ -106,11 +111,7 @@ const Map = ({coffees}) => {
     <>
       {  lat !== 0 && long !== 0 ?
         <div>
-          <NavBar coffees={coffees}
-            onSelectRegion={onSelectRegion}
-            onSelectTaste={onSelectTaste}
-            onSelectBean={onSelectBean}
-            selectedTaste={selectedTaste}
+          <NavBar changeDistance={changeDistance}
           />
 
 
