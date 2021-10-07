@@ -8,18 +8,6 @@ import Loading from '../components/Loading.js'
 // import { getCoffees } from "../Services"
 import MarkerList from "../components/map_components/MarkerList"
 
-  // INITIAL STATE
-let state = {
-  zoom: 10,
-  lat: 0,
-  lon: 0,
-};
-
-
-
-
-
-
 const Map = ({coffees}) => {
 
   // const [coffees, setCoffees] = useState([]);
@@ -67,9 +55,6 @@ const Map = ({coffees}) => {
     shadowAnchor: [20, 48],
     popupAnchor: [0, -20]
   });
-
-  // FILTER COFFEES
-
 
   function filterCoffees() {
     // three filters in series
@@ -142,7 +127,7 @@ const Map = ({coffees}) => {
           </MapContainer>
           
         </div> : 
-        <Loading className="map">Loading...</Loading>
+        <Loading></Loading>
         }
     </>
 

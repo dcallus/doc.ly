@@ -16,17 +16,10 @@ body::before {
   background-image: url(./images/bg.jpg);
   background-size: cover;
 }
-
-#header {
-  color: black;
-  background-position-x: center;
-}
-
 #header > h1 { 
   margin: 0;
   font-size:100pt;
-  border-style: solid;
-  border-color: black;
+  background-color: rgba(255,255,255,0);
 }
 
 #header > h1:hover {
@@ -38,16 +31,18 @@ body::before {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background-color: black;
+    margin-left: 85%;
+    align-items: center;
   }
 
 #Ui-Container {
   flex: 1 0 auto;
   max-width: 100%;
   max-height: auto;
-  background-color: black;
+  background-color: hsl(204, 80%, 50%);
   border-style: solid;
   border-width: 20px;
+  border-color: hsl(204, 80%, 70%);
 }
 
 #map-container {
@@ -57,7 +52,6 @@ body::before {
   margin-right: auto;
   margin-bottom: px;
   width: 500px;
-  color: black;
   background-size: cover;
   background-repeat: no-repeat;
   padding: 100px;  
@@ -67,8 +61,12 @@ body::before {
   height: 60vh;
 }
 
+.loading {
+  color: white;
+}
+
 #property {
-  background-color: rgba(62, 20, 20, 0.818);
+  /* background-color: rgba(62, 20, 20, 0.818); */
   color: white;
 }
 
@@ -115,7 +113,7 @@ margin-bottom: 40px;
  }
 
 .button { 
-  background-color: black;
+  background-color: hsl(204, 90%, 20%);
   color: antiquewhite;
   font-weight: bold;
   border-style: none;
