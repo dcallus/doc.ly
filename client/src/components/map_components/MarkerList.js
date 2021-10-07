@@ -4,7 +4,6 @@ import { Marker, Popup, Tooltip } from 'react-leaflet';
 
 
 const MarkerList = ({icon, doctors}) => {
-    console.log(doctors)
     let markerNodes = null;
     if (doctors.length > 1){
     markerNodes = doctors.map((doctor) => {
@@ -14,21 +13,18 @@ const MarkerList = ({icon, doctors}) => {
         
              <Popup>
              <div id= 'popup'>           
-            <h3></h3>
+            <h3>{doctor.name}</h3>
             
             <p>
                 <ul>
-                    <li id = "region-popup">Region: </li>
-                    <li>Number of Farms: </li>
-                    <li>Production Volume:  60kg bags per year</li>
-                    <li>Bean Type: </li>
-                    <li>Taste Profile: </li>
-                    <li>Export Volume: 60kg bags per year</li>
+                    <li>Rating: {doctor.rating}/5</li>
+                    <li>Address:  {doctor.vicinity}</li>
                 </ul>
+                <button className="button">Book Appointment</button>
             </p>
             </div>
             </Popup >
-            <Tooltip direction="bottom" offset={[0, 20]} opacity={0.9}></Tooltip>
+            <Tooltip direction="bottom" offset={[0, 20]} opacity={0.9}>{doctor.name}</Tooltip>
             </Marker>
     });
 }
