@@ -5,8 +5,10 @@ import { MapContainer, TileLayer} from 'react-leaflet';
 import doc from '../images/doc-symbol.png';
 import docShadow from '../images/doc-symbol-shadow.png'
 import Loading from '../components/Loading.js'
+import { getDoctors } from '../Services';
 // import { getCoffees } from "../Services"
 import MarkerList from "../components/map_components/MarkerList"
+
 
 const Map = ({coffees}) => {
 
@@ -39,6 +41,9 @@ const Map = ({coffees}) => {
   useEffect(() => {
     filterCoffees()
   }, [selectedRegion, selectedTaste, selectedBean, coffees])
+
+
+  getDoctors().then((value) => console.log(value));
 
   const onSelectRegion = function (region) {
     setSelectedRegion(region)
