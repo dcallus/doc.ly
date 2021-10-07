@@ -2,8 +2,8 @@ import React, { useState, useEffect} from 'react';
 import NavBar from '../components/NavBar'
 import L from 'leaflet';
 import { MapContainer, TileLayer, useMap } from 'react-leaflet';
-import coffeeCup from '../images/coffeecup.png';
-import coffeeShadow from '../images/coffeecup-shadow.png'
+import doc from '../images/doc-symbol.png';
+import docShadow from '../images/doc-symbol-shadow.png'
 // import { getCoffees } from "../Services"
 import MarkerList from "../components/map_components/MarkerList"
 
@@ -60,11 +60,11 @@ const Map = ({coffees}) => {
   };
 
   const coffeeIcon = L.icon({
-    iconUrl: coffeeCup,
-    shadowUrl: coffeeShadow,
-    iconSize: [38, 38],
-    shadowSize: [47, 34],
-    shadowAnchor: [15, 14],
+    iconUrl: doc,
+    shadowUrl: docShadow,
+    iconSize: [60, 60],
+    shadowSize: [60, 80],
+    shadowAnchor: [20, 48],
     popupAnchor: [0, -20]
   });
 
