@@ -42,8 +42,9 @@ const Map = ({coffees}) => {
     filterCoffees()
   }, [selectedRegion, selectedTaste, selectedBean, coffees])
 
-
-  getDoctors().then((value) => console.log(value));
+  useEffect(() => {
+  getDoctors(distance, lat, long).then((value) => console.log(value));
+  }, [long, distance]);
 
   const onSelectRegion = function (region) {
     setSelectedRegion(region)

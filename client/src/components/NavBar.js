@@ -6,10 +6,9 @@ const NavBar = ({changeDistance}) => {
 
     return (
         <div id="navbar-container">
-            Distance:
-            <button className = "button" onClick={() => changeDistance(10)}>10</button>
-            <button className = "button" onClick={() => changeDistance(20)}>20</button>
-            <button className = "button" onClick={() => changeDistance(30)}>30</button>
+            Radius:
+            <button className = "button" onClick={() => changeDistance(1000)}>1000²m</button>
+            <button className = "button" onClick={() => changeDistance(2000)}>2000²m</button>
         </div>
     )
 };
