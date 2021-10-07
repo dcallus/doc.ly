@@ -8,8 +8,7 @@ const Header = () => {
 
     return (
         <div id = "header">
-            <h1 onClick = {handleHomeClick}>CARTOG
-                COFFEE.</h1>
+            <h1>PHLO</h1>
         </div>
     )
 }

@@ -4,23 +4,12 @@ import Map from "./Map";
 import Footer from "../components/Footer";
 import { getCoffees } from "../Services";
 import NavBarBottom from "../components/NavBarBottom";
-import { features } from "../data/countries.json";
 
 const UiContainer = () => {
   const [coffees, setCoffees] = useState([]);
   const [legend, setLegend] = useState([]);
   const [viewFarm, setViewFarm] = useState(true);
   const [countries, setCountries] = useState([]);
-
-  const load = () => {
-    for (let i = 0; i < features.length; i++) {
-      const mapCountry = features[i];
-
-    }
-    setCountries(features);
-  };
-
-  useEffect(load, [legend]);
 
 
   useEffect(() => {
