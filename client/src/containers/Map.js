@@ -1,11 +1,23 @@
 import React, { useState, useEffect} from 'react';
 import NavBar from '../components/NavBar'
 import L from 'leaflet';
-import { MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer} from 'react-leaflet';
 import doc from '../images/doc-symbol.png';
 import docShadow from '../images/doc-symbol-shadow.png'
+import Loading from '../components/Loading.js'
 // import { getCoffees } from "../Services"
 import MarkerList from "../components/map_components/MarkerList"
+
+  // INITIAL STATE
+let state = {
+  zoom: 10,
+  lat: 0,
+  lon: 0,
+};
+
+
+
+
 
 
 const Map = ({coffees}) => {
@@ -14,9 +26,23 @@ const Map = ({coffees}) => {
   const [selectedRegion, setSelectedRegion] = useState('All');
   const [selectedTaste, setSelectedTaste] = useState('All');
   const [selectedBean, setSelectedBean] = useState('Both');
-  const [filteredCoffees, setFilteredCoffees] = useState([coffees])
+  const [filteredCoffees, setFilteredCoffees] = useState([coffees]);
+  const [lat, setLat] = useState(0);
+  const [long, setLong] = useState(0);
 
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(saveLocation);
+  }}
 
+  function saveLocation(position) {
+    setLat(position.coords.latitude);
+    setLong(position.coords.longitude);
+    // console.log("Latitude: " + state.lat + 
+    // "Longitude: " + state.long);
+  }
+
+  getLocation();
   useEffect(() => {
     filterCoffees()
   }, [selectedRegion, selectedTaste, selectedBean, coffees])
@@ -33,32 +59,6 @@ const Map = ({coffees}) => {
     setSelectedBean(bean)
   };
 
-
-  function FlyTo() {
-    const map = useMap()
-    if (selectedRegion === "All") {
-      map.flyTo([10, 0], 3)
-    }
-    else if (selectedRegion === "Americas") {
-      map.flyTo([-8, -60], 3.5)
-    }
-    else if (selectedRegion === "Africa") {
-      map.flyTo([0, 13], 3.8)
-    }
-    else if (selectedRegion === "Asia") {
-      map.flyTo([15, 110], 4.0)
-    }
-    return null
-  };
-
-  
-  // INITIAL STATE
-  const state = {
-    zoom: 3.3,
-    lat: 0,
-    lon: 0,
-  };
-
   const coffeeIcon = L.icon({
     iconUrl: doc,
     shadowUrl: docShadow,
@@ -67,8 +67,6 @@ const Map = ({coffees}) => {
     shadowAnchor: [20, 48],
     popupAnchor: [0, -20]
   });
-
-  const positionCenter = [state.lat, state.lon];
 
   // FILTER COFFEES
 
@@ -121,7 +119,7 @@ const Map = ({coffees}) => {
   return (
 
     <>
-      {    coffees ?
+      {  lat !== 0 && long !== 0 ?
         <div>
           <NavBar coffees={coffees}
             onSelectRegion={onSelectRegion}
@@ -131,8 +129,7 @@ const Map = ({coffees}) => {
           />
 
 
-          <MapContainer className="map" attributionControl={false} center={positionCenter} zoom={state.zoom}
-          maxBounds={[[400, 400], [-400, -200]]}
+          <MapContainer className="map" attributionControl={false} center={[lat, long]} zoom={15}
           scrollWheelZoom={false}
           minZoom={2}
            >
@@ -142,10 +139,11 @@ const Map = ({coffees}) => {
             />
 
             <MarkerList coffees={filteredCoffees} icon={coffeeIcon} />
-            <FlyTo />
           </MapContainer>
           
-        </div> : null}
+        </div> : 
+        <Loading className="map">Loading...</Loading>
+        }
     </>
 
   )
