@@ -9,7 +9,7 @@ const Modal = ({showModal, currentDoctor}) => {
         <h2>Book an Appointment</h2>
       </div>
       <div class="modal-body">
-        <p>{currentDoctor.name}</p>
+        <p><h3>{currentDoctor.name}</h3></p>
         <p>Some other text...</p>
       </div>
       <div class="modal-footer">
