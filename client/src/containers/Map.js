@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import NavBar from '../components/NavBar'
 import L from 'leaflet';
-import { MapContainer, TileLayer} from 'react-leaflet';
+import { MapContainer, TileLayer, useMap} from 'react-leaflet';
 import doc from '../images/doc-symbol.png';
 import docShadow from '../images/doc-symbol-shadow.png'
 import Loading from '../components/Loading.js'
@@ -14,6 +14,14 @@ const Map = ({}) => {
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
   const [doctors, setDoctors] = useState({})
+
+  function FlyTo() {
+    const map = useMap()
+    if (long != 0) {
+      map.flyTo([lat, long], 14)
+    }
+    return null
+  };
 
   async function getDoctors (lat, long) {
     return fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=doctor&location=${lat}%2C${long}&radius=2000&type=health&key=AIzaSyCo5P0oK1yXi9wZs7zyQTV6puo5dswHmUY`).then((response) => {
@@ -58,11 +66,10 @@ const Map = ({}) => {
   return (
 
     <>
-      {  lat !== 0 && long !== 0 ?
         <div>
           <NavBar />
 
-          <MapContainer className="map" attributionControl={false} center={[lat, long]} zoom={15}
+          <MapContainer className="map" attributionControl={false} center={[20, 60]} zoom={3}
           scrollWheelZoom={false}
           minZoom={2}
            >
@@ -72,11 +79,11 @@ const Map = ({}) => {
             />
 
             <MarkerList icon={icon} doctors={doctors}/>
+            <FlyTo />
           </MapContainer>
           
-        </div> : 
-        <Loading></Loading>
-        }
+        </div>
+
     </>
 
   )
