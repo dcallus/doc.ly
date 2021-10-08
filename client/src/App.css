@@ -133,6 +133,7 @@ margin-bottom: 40px;
 
 /* The Modal (background) */
 .modal {
+  display: block;
   position: fixed; /* Stay in place */
   z-index: 1 !important; /* Sit on top */
   padding-top: 100px; /* Location of the box */
