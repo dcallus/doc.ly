@@ -16,13 +16,15 @@ const Map = ({}) => {
   const [currentDoctor, setCurrentDoctor] = useState("");
   const [loadingMessage, setLoadingMessage] = useState("Finding your location...");
   const [displayModal, setDisplayModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (long != 0) {
       setLoadingMessage("Finding nearby doctors...")
     }
     if (doctors) {
-      setLoadingMessage(`Found ${doctors.length} doctors in your area!`)
+      setLoadingMessage(`Found ${doctors.length} doctors in your area!`);
+      setIsLoading(false);
     }
   }, [long, doctors]);
 
@@ -87,7 +89,7 @@ const Map = ({}) => {
 
     <>
 
-          <NavBar loadingMessage={loadingMessage}/>
+          <NavBar loadingMessage={loadingMessage} isLoading={isLoading}/>
 
           <MapContainer className="map" attributionControl={false} center={[20, 60]} zoom={3}
           scrollWheelZoom={false}
