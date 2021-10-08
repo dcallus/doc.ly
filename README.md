@@ -3,9 +3,11 @@
 
 
 #INSTRUCTIONS:
- 
+  SERVER
   -  from SERVER directory: npm install 
   -  from SERVER directory: npm start
+  CLIENT
+  -  from CLIENT directory: Locate src/containers/Map.js and replace YOUR_API_KEY on line 41 with a google API key 
   -  from CLIENT directory: npm install
   -  from CLIENT directory: npm start 
   -  Allow Location Detection from your browser
