@@ -22,7 +22,7 @@ const MarkerList = ({icon, doctors, showModal, changeCurrentDoctor}) => {
                     <li>No rating yet</li>}
                     <li>Address:  {doctor.vicinity}</li>
                 </ul>
-                <button className="button" onClick={() => {showModal(true); changeCurrentDoctor(doctor.name)}}>Book Appointment</button>
+                <button className="button" onClick={() => {showModal(true); changeCurrentDoctor(doctor)}}>Book Appointment</button>
         
             </div>
             </Popup >
