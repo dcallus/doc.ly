@@ -1,7 +1,6 @@
 #INSTRUCTIONS:
  
   -  from SERVER directory: npm install 
-  -  from SERVER directory: npm run seeds
   -  from SERVER directory: npm start
   -  from CLIENT directory: npm install
   -  from CLIENT directory: npm start 
