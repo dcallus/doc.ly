@@ -13,7 +13,8 @@ const Map = ({}) => {
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
   const [doctors, setDoctors] = useState("");
-  const [loadingMessage, setLoadingMessage] = useState("Find your location...");
+  const [currentDoctor, setCurrentDoctor] = useState("");
+  const [loadingMessage, setLoadingMessage] = useState("Finding your location...");
   const [displayModal, setDisplayModal] = useState(false);
 
   useEffect(() => {
@@ -76,7 +77,11 @@ const Map = ({}) => {
   });
 
   const showModal = () => {
-    setDisplayModal(true)
+    setDisplayModal(true);
+  }
+
+  const changeCurrentDoctor = (doctor) => {
+    setCurrentDoctor(doctor);
   }
   return (
 
@@ -93,7 +98,7 @@ const Map = ({}) => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            <MarkerList icon={icon} doctors={doctors} showModal={showModal}/>
+            <MarkerList icon={icon} doctors={doctors} showModal={showModal} changeCurrentDoctor={changeCurrentDoctor}/>
             <FlyTo />
           </MapContainer>
 {displayModal &&          
@@ -101,10 +106,10 @@ const Map = ({}) => {
 <div class="modal-content">
   <div class="modal-header">
     <span class="close" onClick={() => setDisplayModal(false)}>&times;</span>
-    <h2>Modal Header</h2>
+    <h2>Book an Appointment</h2>
   </div>
   <div class="modal-body">
-    <p>Some text in the Modal Body</p>
+    <p>{currentDoctor.name}</p>
     <p>Some other text...</p>
   </div>
   <div class="modal-footer">

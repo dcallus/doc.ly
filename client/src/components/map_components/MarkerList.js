@@ -3,13 +3,14 @@ import { Marker, Popup, Tooltip } from 'react-leaflet';
 
 
 
-const MarkerList = ({icon, doctors, showModal}) => {
+const MarkerList = ({icon, doctors, showModal, changeCurrentDoctor}) => {
     let markerNodes = null;
     if (doctors.length > 1){
     markerNodes = doctors.map((doctor) => {
         return <Marker
          
-        position={[doctor.geometry.location.lat, doctor.geometry.location.lng]} icon={icon}>
+        position={[doctor.geometry.location.lat, doctor.geometry.location.lng]} icon={icon}
+        onClick={changeCurrentDoctor(doctor)}>
         
              <Popup>
              <div id= 'popup'>           
@@ -17,7 +18,9 @@ const MarkerList = ({icon, doctors, showModal}) => {
             
             <p>
                 <ul>
-                    <li>Rating: {doctor.rating}/5</li>
+                    {doctor.user_ratings_total > 0?
+                    <li>Rating: {doctor.rating}/5</li>:
+                    <li>No rating yet</li>}
                     <li>Address:  {doctor.vicinity}</li>
                 </ul>
                 <button className="button" onClick={showModal}>Book Appointment</button>
