@@ -10,7 +10,9 @@ const Modal = ({showModal, currentDoctor}) => {
       </div>
       <div class="modal-body">
         <p><h3>{currentDoctor.name}</h3></p>
-        <p>Some other text...</p>
+        <p><label>Date/Time of Appointment: <input type="datetime-local"></input></label></p>
+        <p><label>First Name: <input type="text"></input></label></p>
+        <p><label>Last Name: <input type="text"></input></label></p>
       </div>
       <div class="modal-footer">
       <button className="button" onClick={showModal}>BOOK NOW</button>

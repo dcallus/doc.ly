@@ -14,7 +14,7 @@ const Footer = ({}) => {
             </div>
     
             <div>
-                A Phlo company
+                Daniel Callus
             </div>
         </div>
          
