@@ -28,7 +28,6 @@ body::before {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: 85%;
     align-items: center;
   }
 
@@ -57,10 +56,6 @@ body::before {
 .map {
   height: 60vh;
   z-index: 0;
-}
-
-.loading {
-  color: white;
 }
 
 #popup  {

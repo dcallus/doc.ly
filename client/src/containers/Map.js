@@ -4,7 +4,6 @@ import L from 'leaflet';
 import { MapContainer, TileLayer, useMap} from 'react-leaflet';
 import doc from '../images/doc-symbol.png';
 import docShadow from '../images/doc-symbol-shadow.png'
-import Loading from '../components/Loading.js'
 import MarkerList from "../components/map_components/MarkerList"
 import Modal from "../components/Modal"
 
