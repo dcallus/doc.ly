@@ -3,12 +3,12 @@ import BookingService from "../Services";
 
 const Modal = ({showModal, currentDoctor}) => {
   const [bookings, setBookings] = useState([]);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [checkedIn, setCheckedIn] = useState(false);
 
-  const handleFirstNameChange = (ev) => setName(ev.target.value);
-  const handleLastNameChange = (ev) => setEmail(ev.target.value);
+  const handleFirstNameChange = (ev) => setFirstName(ev.target.value);
+  const handleLastNameChange = (ev) => setLastName(ev.target.value);
   const handleDateChange = (ev) => setCheckedIn(ev.target.value);
 useEffect(() => {
   BookingService.getBookings()
@@ -24,12 +24,12 @@ const addBooking = newBooking => {
 const handleSubmit = ev => {
   ev.preventDefault();
   addBooking({
-    name: name,
-    email: email,
+    firstName: firstName,
+    lastName: lastName,
     checked_in: checkedIn
   });
-  setName("");
-  setEmail("");
+  setFirstName("");
+  setLastName("");
   setCheckedIn(false);
 }
 
@@ -49,13 +49,19 @@ return (
       <p><label>First Name: </label>
         <input type="text"
       type="text" 
-      id="name" 
-      name="name" 
-      value={name} 
+      id="firstName" 
+      firstName="firstName" 
+      value={firstName} 
       required 
       onChange={handleFirstNameChange}></input></p>
       <p><label>Last Name: </label>
-      <input type="text"></input></p>
+      <input type="text"
+      type="text" 
+      id="lastName" 
+      lastName="lastName" 
+      value={lastName} 
+      required 
+      onChange={handleLastNameChange}></input></p>
     </div>
     <div class="modal-footer">
     <button className="button" onClick={showModal}>BOOK NOW</button>
