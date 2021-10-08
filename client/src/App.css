@@ -187,6 +187,10 @@ body::before {
   text-align: left;
 }
 
+.confirmation {
+  padding: 2px 16px;
+}
+
 .modal-footer {
   padding: 2px 16px;
   background-color: hsl(204, 70%, 50%);

@@ -7,10 +7,12 @@ const Modal = ({showModal, currentDoctor}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateTime, setDateTime] = useState(false);
+  const [confirmed, setConfirmed] = useState(false);
 
   const handleFirstNameChange = (ev) => setFirstName(ev.target.value);
   const handleLastNameChange = (ev) => setLastName(ev.target.value);
   const handleDateChange = (ev) => setDateTime(ev.target.value);
+
 useEffect(() => {
   BookingService.getBookings()
     .then(bookings => setBookings(bookings));
@@ -43,6 +45,8 @@ return (
       <span class="close" onClick={() => showModal(false)}>&times;</span>
       <h2>Book an Appointment</h2>
     </div>
+      {!confirmed?
+      
       <form onSubmit={handleSubmit}>
     <div class="modal-body">
       <p><h3>{currentDoctor.name}</h3></p>
@@ -70,12 +74,22 @@ return (
       onChange={handleLastNameChange}></input></p>
     </div>
     <div class="modal-footer">
-    <button className="button" onClick={showModal}>BOOK NOW</button>
+    <button className="button" onClick={() => setConfirmed(true)}>BOOK NOW</button>
     </div>
-    </form>
+    </form>: 
+    <>
+    <div class="confirmation">
+      <p><h3>Booking Confirmed</h3></p>
+      <p>{currentDoctor.name} @ {dateTime}</p>
+    </div>
+    <div class="modal-footer">
+    <button className="button" onClick={() => showModal(false)}>CLOSE</button>
+    </div>
+    </>
+    }
   </div>
-  
   </div> 
+
   );
 }
  
