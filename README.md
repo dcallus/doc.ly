@@ -1,5 +1,5 @@
-#TASK
-Create an app to book doctor's appointment based on users location in under 10 hours.
+#TASK:
+  -  Create an app to book doctor's appointment based on users location in under 10 hours.
 
 
 #INSTRUCTIONS:
