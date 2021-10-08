@@ -7,14 +7,14 @@ import docShadow from '../images/doc-symbol-shadow.png'
 import Loading from '../components/Loading.js'
 import MarkerList from "../components/map_components/MarkerList"
 
-
 const Map = ({}) => {
   getLocation()
 
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
-  const [doctors, setDoctors] = useState("")
-  const [loadingMessage, setLoadingMessage] = useState("Find your location...")
+  const [doctors, setDoctors] = useState("");
+  const [loadingMessage, setLoadingMessage] = useState("Find your location...");
+  const [displayModal, setDisplayModal] = useState(false);
 
   useEffect(() => {
     if (long != 0) {
@@ -75,10 +75,13 @@ const Map = ({}) => {
     popupAnchor: [0, -20]
   });
 
+  const showModal = () => {
+    setDisplayModal(true)
+  }
   return (
 
     <>
-        <div>
+
           <NavBar loadingMessage={loadingMessage}/>
 
           <MapContainer className="map" attributionControl={false} center={[20, 60]} zoom={3}
@@ -90,11 +93,26 @@ const Map = ({}) => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
-            <MarkerList icon={icon} doctors={doctors}/>
+            <MarkerList icon={icon} doctors={doctors} showModal={showModal}/>
             <FlyTo />
           </MapContainer>
-          
-        </div>
+{displayModal &&          
+<div id="myModal" class="modal" style={{display: 'block'}}>
+<div class="modal-content">
+  <div class="modal-header">
+    <span class="close" onClick={() => setDisplayModal(false)}>&times;</span>
+    <h2>Modal Header</h2>
+  </div>
+  <div class="modal-body">
+    <p>Some text in the Modal Body</p>
+    <p>Some other text...</p>
+  </div>
+  <div class="modal-footer">
+    <h3>Modal Footer</h3>
+  </div>
+</div>
+
+</div>}
 
     </>
 

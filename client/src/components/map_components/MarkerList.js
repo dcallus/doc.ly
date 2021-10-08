@@ -3,7 +3,7 @@ import { Marker, Popup, Tooltip } from 'react-leaflet';
 
 
 
-const MarkerList = ({icon, doctors}) => {
+const MarkerList = ({icon, doctors, showModal}) => {
     let markerNodes = null;
     if (doctors.length > 1){
     markerNodes = doctors.map((doctor) => {
@@ -20,7 +20,7 @@ const MarkerList = ({icon, doctors}) => {
                     <li>Rating: {doctor.rating}/5</li>
                     <li>Address:  {doctor.vicinity}</li>
                 </ul>
-                <button className="button">Book Appointment</button>
+                <button className="button" onClick={showModal}>Book Appointment</button>
             </p>
             </div>
             </Popup >
