@@ -13,7 +13,7 @@ const Modal = ({showModal, currentDoctor}) => {
         <p>Some other text...</p>
       </div>
       <div class="modal-footer">
-        <h3>Modal Footer</h3>
+      <button className="button" onClick={showModal}>BOOK NOW</button>
       </div>
     </div>
     

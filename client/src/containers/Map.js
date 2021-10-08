@@ -20,7 +20,7 @@ const Map = ({}) => {
 
   useEffect(() => {
     if (long != 0) {
-      setLoadingMessage("Find nearby doctors...")
+      setLoadingMessage("Finding nearby doctors...")
     }
     if (doctors) {
       setLoadingMessage("")
