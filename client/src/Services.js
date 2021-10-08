@@ -1,10 +1,21 @@
 const baseURL = "http://localhost:5000/api/doctors/"
 
-export const getDoctors = () =>  {
-    return fetch(baseURL)
-        .then(res => res.json())
-};
-
-export const saveAppointment = (doctor, firstName, lastName, dateTime) => {
-    
+const BookingService =  {
+    getBookings() {
+      return fetch(baseURL)
+        .then(res => res.json());
+    },
+  
+    addBooking(booking) {
+      return fetch(baseURL, {
+        method: 'POST',
+        body: JSON.stringify(booking),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(res => res.json());
+    },
 }
+  
+  export default BookingService;
