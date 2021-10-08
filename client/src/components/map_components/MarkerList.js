@@ -9,8 +9,7 @@ const MarkerList = ({icon, doctors, showModal, changeCurrentDoctor}) => {
     markerNodes = doctors.map((doctor) => {
         return <Marker
          
-        position={[doctor.geometry.location.lat, doctor.geometry.location.lng]} icon={icon}
-        onClick={changeCurrentDoctor(doctor)}>
+        position={[doctor.geometry.location.lat, doctor.geometry.location.lng]} icon={icon}>
         
              <Popup>
              <div id= 'popup'>           
@@ -23,7 +22,7 @@ const MarkerList = ({icon, doctors, showModal, changeCurrentDoctor}) => {
                     <li>No rating yet</li>}
                     <li>Address:  {doctor.vicinity}</li>
                 </ul>
-                <button className="button" onClick={showModal}>Book Appointment</button>
+                <button className="button" onClick={() => {showModal(true); changeCurrentDoctor(doctor.name)}}>Book Appointment</button>
         
             </div>
             </Popup >
