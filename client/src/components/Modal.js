@@ -5,11 +5,11 @@ const Modal = ({showModal, currentDoctor}) => {
   const [bookings, setBookings] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [checkedIn, setCheckedIn] = useState(false);
+  const [dateTime, setDateTime] = useState(false);
 
   const handleFirstNameChange = (ev) => setFirstName(ev.target.value);
   const handleLastNameChange = (ev) => setLastName(ev.target.value);
-  const handleDateChange = (ev) => setCheckedIn(ev.target.value);
+  const handleDateChange = (ev) => setDateTime(ev.target.value);
 useEffect(() => {
   BookingService.getBookings()
     .then(bookings => setBookings(bookings));
@@ -26,11 +26,11 @@ const handleSubmit = ev => {
   addBooking({
     firstName: firstName,
     lastName: lastName,
-    checked_in: checkedIn
+    date_time: dateTime
   });
   setFirstName("");
   setLastName("");
-  setCheckedIn(false);
+  setDateTime(false);
 }
 
 return ( 
@@ -45,10 +45,14 @@ return (
       <p><h3>{currentDoctor.name}</h3></p>
 
       <p><label>Date/Time of Appointment:</label>
-      <input type="datetime-local"></input></p>
+      <input type="datetime-local"
+      id="dateTime" 
+      dateTime="dateTime" 
+      value={dateTime} 
+      required 
+      onChange={handleDateChange}></input></p>
       <p><label>First Name: </label>
         <input type="text"
-      type="text" 
       id="firstName" 
       firstName="firstName" 
       value={firstName} 
@@ -56,7 +60,6 @@ return (
       onChange={handleFirstNameChange}></input></p>
       <p><label>Last Name: </label>
       <input type="text"
-      type="text" 
       id="lastName" 
       lastName="lastName" 
       value={lastName} 
