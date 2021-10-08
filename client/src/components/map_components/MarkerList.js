@@ -16,7 +16,7 @@ const MarkerList = ({icon, doctors, showModal, changeCurrentDoctor}) => {
              <div id= 'popup'>           
             <h3>{doctor.name}</h3>
             
-            <p>
+
                 <ul>
                     {doctor.user_ratings_total > 0?
                     <li>Rating: {doctor.rating}/5</li>:
@@ -24,7 +24,7 @@ const MarkerList = ({icon, doctors, showModal, changeCurrentDoctor}) => {
                     <li>Address:  {doctor.vicinity}</li>
                 </ul>
                 <button className="button" onClick={showModal}>Book Appointment</button>
-            </p>
+        
             </div>
             </Popup >
             <Tooltip direction="bottom" offset={[0, 20]} opacity={0.9}>{doctor.name}</Tooltip>

@@ -16,13 +16,11 @@ body::before {
   background-image: url(./images/bg.jpg);
   background-size: cover;
 }
-#header {
-  background-color: rgba(255,255,255,0);
-}
 
 #header > h1 { 
   margin: 0;
-  font-size:100pt;
+  font-size:80pt;
+  color:hsl(204, 80%, 20%)
 }
 
 #navbar-container {
@@ -65,14 +63,10 @@ body::before {
   color: white;
 }
 
-#property {
-  /* background-color: rgba(62, 20, 20, 0.818); */
-  color: white;
-}
-
 #popup  {
   display: flexbox;
   justify-content: center;
+  align-items: center;
   text-shadow: snow;
   font-weight: bold;
   background-size: unset;
@@ -83,12 +77,8 @@ body::before {
 #popup > h3 {
   color: darkgrey ;
   margin-bottom: 2px;
-  font-size: x-large;
+  font-size: 1.5em;
   text-align: center;
-}
-
-.navButtons {
-margin-bottom: 40px;
 }
 
 #nav-bar-bottom {
@@ -103,6 +93,7 @@ margin-bottom: 40px;
   justify-content: space-between;
   align-items: center;
   color: antiquewhite;
+  padding: 0 20px 0 20px;
 }
  
  #copyright {
@@ -117,6 +108,7 @@ margin-bottom: 40px;
   color: antiquewhite;
   font-weight: bold;
   border-style: none;
+  margin-left: 25%;
 }
 .button:hover {
   background-color: hsl(204, 90%, 35%);
