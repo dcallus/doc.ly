@@ -33,47 +33,38 @@ const handleSubmit = ev => {
   setCheckedIn(false);
 }
 
-    return (       
-    <div id="myModal" class="modal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close" onClick={() => showModal(false)}>&times;</span>
-        
-        <h2>Book an Appointment</h2>
-      </div>
-      <form onSubmit={handleSubmit} id="booking-form">
-      <div class="modal-body">
-        <p><h3>{currentDoctor.name}</h3></p>
-        <p><label>Date/Time of Appointment: 
-          <input type="datetime-local"
-          id="name"
-          name="name" 
-          value={name}
-          required
-          onChange={handleDateChange}></input></label></p>
-        <p><label>First Name: 
-          <input type="text"
-          id="email" 
-          name="email" 
-          value={email}
-          required
-          onChange={handleFirstNameChange}></input></label></p>
-        <p><label>Last Name: 
-          <input type="text"
-          id="checked_in" 
-          name="checked_in" 
-          value={checkedIn} 
-          required
-          onChange={handleLastNameChange}></input></label></p>
-      </div>
-      <div class="modal-footer">
-      <button type="submit" className="button" onClick={() => showModal(false)}>BOOK NOW</button>
-      </div>
-      </form>
+return ( 
+  <div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" onClick={() => showModal(false)}>&times;</span>
+      <h2>Book an Appointment</h2>
     </div>
-    
-    </div> 
-    );
+      <form onSubmit={handleSubmit}>
+    <div class="modal-body">
+      <p><h3>{currentDoctor.name}</h3></p>
+
+      <p><label>Date/Time of Appointment:</label>
+      <input type="datetime-local"></input></p>
+      <p><label>First Name: </label>
+        <input type="text"
+      type="text" 
+      id="name" 
+      name="name" 
+      value={name} 
+      required 
+      onChange={handleFirstNameChange}></input></p>
+      <p><label>Last Name: </label>
+      <input type="text"></input></p>
+    </div>
+    <div class="modal-footer">
+    <button className="button" onClick={showModal}>BOOK NOW</button>
+    </div>
+    </form>
+  </div>
+  
+  </div> 
+  );
 }
  
 export default Modal;
