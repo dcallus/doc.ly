@@ -9,6 +9,7 @@ Create an app to book doctor's appointment based on users location in under 10 h
   -  from CLIENT directory: npm install
   -  from CLIENT directory: npm start 
   -  Allow Location Detection from your browser
+  -  Check your MongoDB Database for entries
 
 
 You may need the following chrome extension installed to allow interaction with the Google API from your localhost.

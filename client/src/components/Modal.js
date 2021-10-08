@@ -16,7 +16,6 @@ const Modal = ({showModal, currentDoctor}) => {
 useEffect(() => {
   BookingService.getBookings()
     .then(bookings => setBookings(bookings));
-    console.log('bookings:', bookings);
 }, [handleSubmit]);
 
 const addBooking = newBooking => {
@@ -35,7 +34,8 @@ const handleSubmit = ev => {
   });
   setFirstName("");
   setLastName("");
-  setDateTime(false);
+  setDateTime("");
+  setConfirmed(true);
 }
 
 return ( 
@@ -74,7 +74,7 @@ return (
       onChange={handleLastNameChange}></input></p>
     </div>
     <div class="modal-footer">
-    <button className="button" onClick={() => setConfirmed(true)}>BOOK NOW</button>
+    <button className="button">BOOK NOW</button>
     </div>
     </form>: 
     <>
