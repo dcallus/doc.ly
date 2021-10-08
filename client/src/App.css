@@ -218,10 +218,11 @@ body::before {
   background-color:rgba(110, 186, 245, 0.25);
   box-shadow: 2px 2px 5px rgba(76, 170, 242, 0.2) inset;
   transition: 0.2s;
-  border: none;
+  border: 1px solid rgba(110, 186, 245, 0.1);
 }
 
 #input:active {
   background-color:rgba(9, 143, 245, 0.3);
   transition: 0.1s;
+  border: 1px solid rgba(110, 186, 245, 0.1);
 }
