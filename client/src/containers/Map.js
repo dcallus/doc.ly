@@ -13,7 +13,17 @@ const Map = ({}) => {
 
   const [lat, setLat] = useState(0);
   const [long, setLong] = useState(0);
-  const [doctors, setDoctors] = useState({})
+  const [doctors, setDoctors] = useState("")
+  const [loadingMessage, setLoadingMessage] = useState("Find your location...")
+
+  useEffect(() => {
+    if (long != 0) {
+      setLoadingMessage("Find nearby doctors...")
+    }
+    if (doctors) {
+      setLoadingMessage("")
+    }
+  }, [long, doctors]);
 
   function FlyTo() {
     const map = useMap()
@@ -69,7 +79,7 @@ const Map = ({}) => {
 
     <>
         <div>
-          <NavBar />
+          <NavBar loadingMessage={loadingMessage}/>
 
           <MapContainer className="map" attributionControl={false} center={[20, 60]} zoom={3}
           scrollWheelZoom={false}

@@ -1,11 +1,12 @@
 import React from 'react'
 
 
-const NavBar = ({changeDistance}) => {
+const NavBar = ({loadingMessage}) => {
 
 
     return (
         <div id="navbar-container">
+            {loadingMessage}
         </div>
     )
 };

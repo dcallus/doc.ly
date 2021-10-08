@@ -5,7 +5,7 @@
   -  from SERVER directory: npm start
   -  from CLIENT directory: npm install
   -  from CLIENT directory: npm start 
-
+  -  Allow Location Detection from your browser
 
 
 You may need the following chrome extension installed to allow interaction with the Google API from your localhost.
