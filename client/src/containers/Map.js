@@ -24,7 +24,9 @@ const Map = ({}) => {
   };
 
   async function getDoctors (lat, long) {
-    return fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=doctor&location=${lat}%2C${long}&radius=2000&type=health&key=AIzaSyCo5P0oK1yXi9wZs7zyQTV6puo5dswHmUY`).then((response) => {
+    return fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=doctor&location=
+    ${lat}%2C${long}&radius=2000&type=health&key=AIzaSyCo5P0oK1yXi9wZs7zyQTV6puo5dswHmUY`)
+    .then((response) => {
     if (response.ok) {
         return response.json();
     } else {
