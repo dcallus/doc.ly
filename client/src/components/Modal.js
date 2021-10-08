@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import BookingService from "../Services";
+import '../App.css';
 
 const Modal = ({showModal, currentDoctor}) => {
   const [bookings, setBookings] = useState([]);
@@ -26,7 +27,9 @@ const handleSubmit = ev => {
   addBooking({
     firstName: firstName,
     lastName: lastName,
-    date_time: dateTime
+    date_time: dateTime,
+    doctor: currentDoctor.name,
+    location: currentDoctor.vicinity
   });
   setFirstName("");
   setLastName("");
@@ -44,23 +47,23 @@ return (
     <div class="modal-body">
       <p><h3>{currentDoctor.name}</h3></p>
 
-      <p><label>Date/Time of Appointment:</label>
+      <p><label>Date/Time of Appointment: </label>
       <input type="datetime-local"
-      id="dateTime" 
+      id="input" 
       dateTime="dateTime" 
       value={dateTime} 
       required 
       onChange={handleDateChange}></input></p>
       <p><label>First Name: </label>
         <input type="text"
-      id="firstName" 
+      id="input" 
       firstName="firstName" 
       value={firstName} 
       required 
       onChange={handleFirstNameChange}></input></p>
       <p><label>Last Name: </label>
       <input type="text"
-      id="lastName" 
+      id="input" 
       lastName="lastName" 
       value={lastName} 
       required 

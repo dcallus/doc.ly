@@ -147,7 +147,7 @@ body::before {
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
 }
 
 /* Add Animation */
@@ -182,7 +182,10 @@ body::before {
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+  text-align: left;
+}
 
 .modal-footer {
   padding: 2px 16px;
@@ -196,4 +199,29 @@ body::before {
 
 #contact:hover {
   text-decoration: underline;
+}
+
+#input {
+  width: 100%;
+  box-shadow: 2px 2px 5px rgba(76, 170, 242, 0.2) inset;
+  border: 1px solid red;
+}
+
+#input:focus {
+  box-shadow: 0 0 6px rgb(45, 159, 247);
+  transition: .3s;
+  border: 1px solid rgba(77, 77, 240, 0.5);
+  outline: 0px solid white;
+}
+
+#input:valid {
+  background-color:rgba(110, 186, 245, 0.25);
+  box-shadow: 2px 2px 5px rgba(76, 170, 242, 0.2) inset;
+  transition: 0.2s;
+  border: none;
+}
+
+#input:active {
+  background-color:rgba(9, 143, 245, 0.3);
+  transition: 0.1s;
 }
