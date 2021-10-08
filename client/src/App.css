@@ -189,3 +189,11 @@ body::before {
   background-color: hsl(204, 70%, 50%);
   color: white;
 }
+
+#contact {
+  cursor: pointer;
+}
+
+#contact:hover {
+  text-decoration: underline;
+}
