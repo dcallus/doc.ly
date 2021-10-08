@@ -9,6 +9,7 @@
   -  from CLIENT directory: npm install
   -  from CLIENT directory: npm start 
   -  Allow Location Detection from your browser
+  -  Click on a doctor and make a booking
   -  Check your MongoDB Database for entries
 
 
