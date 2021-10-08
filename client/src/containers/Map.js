@@ -22,7 +22,7 @@ const Map = ({}) => {
       setLoadingMessage("Finding nearby doctors...")
     }
     if (doctors) {
-      setLoadingMessage("")
+      setLoadingMessage(`Found ${doctors.length} doctors in your area!`)
     }
   }, [long, doctors]);
 
