@@ -6,6 +6,7 @@ import doc from '../images/doc-symbol.png';
 import docShadow from '../images/doc-symbol-shadow.png'
 import Loading from '../components/Loading.js'
 import MarkerList from "../components/map_components/MarkerList"
+import Modal from "../components/Modal"
 
 const Map = ({}) => {
   getLocation()
@@ -76,8 +77,8 @@ const Map = ({}) => {
     popupAnchor: [0, -20]
   });
 
-  const showModal = () => {
-    setDisplayModal(true);
+  const showModal = (bool) => {
+    setDisplayModal(bool);
   }
 
   const changeCurrentDoctor = (doctor) => {
@@ -102,22 +103,8 @@ const Map = ({}) => {
             <FlyTo />
           </MapContainer>
 {displayModal &&          
-<div id="myModal" class="modal">
-<div class="modal-content">
-  <div class="modal-header">
-    <span class="close" onClick={() => setDisplayModal(false)}>&times;</span>
-    <h2>Book an Appointment</h2>
-  </div>
-  <div class="modal-body">
-    <p>{currentDoctor.name}</p>
-    <p>Some other text...</p>
-  </div>
-  <div class="modal-footer">
-    <h3>Modal Footer</h3>
-  </div>
-</div>
-
-</div>}
+  <Modal showModal={showModal} currentDoctor={currentDoctor}/>
+  }
 
     </>
 
