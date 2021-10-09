@@ -23,3 +23,6 @@ https://chrome.google.com/webstore/detail/cors-unblock/lfhmikememgdcahcdlaciloan
 - Install
 - Run localhost:3000
 - Activate CORS Unblock
+
+#TODO
+-  Refactor Google API calls to backend
